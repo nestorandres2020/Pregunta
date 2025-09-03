@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregúntale a tu flaca</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffe1e1, #f4c4f3);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ff4d4d;
+            transform: rotate(45deg);
+            animation: float 6s infinite;
+            opacity: 0.6;
+        }
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: #ff4d4d;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(45deg);
+                opacity: 0;
+            }
+        }
+        .container {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        h1 {
+            animation: bounce 1.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body class="relative">
+    <!-- Floating hearts for romantic effect -->
+    <div class="heart" style="left: 15%; animation-delay: 0s;"></div>
+    <div class="heart" style="left: 25%; animation-delay: 1s;"></div>
+    <div class="heart" style="left: 35%; animation-delay: 2s;"></div>
+    <div class="heart" style="left: 65%; animation-delay: 1.5s;"></div>
+    <div class="heart" style="left: 75%; animation-delay: 2.5s;"></div>
+
+    <div class="container text-center p-8 bg-white bg-opacity-80 rounded-2xl shadow-lg max-w-md mx-4">
+        <div class="tenor-gif-embed" data-postid="11000679121036284802" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/khanov1-gif-11000679121036284802">Khanov1 GIF</a>from <a href="https://tenor.com/search/khanov1-gifs">Khanov1 GIFs</a></div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        <h1 class="text-4xl font-bold text-pink-600 mt-6 mb-4 font-cursive">Heheheh, Lo sabía!!! 🥰</h1>
+    </div>
+
+    <script>
+        // Add more hearts dynamically for a romantic effect
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+        setInterval(createHeart, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Te gustaría salir conmigo?</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa, #f4c4f3);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ff6b6b;
+            transform: rotate(45deg);
+            animation: float 6s infinite;
+            opacity: 0.5;
+        }
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(45deg);
+                opacity: 0;
+            }
+        }
+        .container {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .btn a {
+            transition: all 0.3s ease;
+        }
+        .btn a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="relative">
+    <!-- Floating hearts for romantic effect -->
+    <div class="heart" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="heart" style="left: 20%; animation-delay: 1s;"></div>
+    <div class="heart" style="left: 30%; animation-delay: 2s;"></div>
+    <div class="heart" style="left: 70%; animation-delay: 1.5s;"></div>
+    <div class="heart" style="left: 80%; animation-delay: 2.5s;"></div>
+
+    <div class="container text-center p-8 bg-white bg-opacity-80 rounded-2xl shadow-lg max-w-md mx-4">
+        <div class="tenor-gif-embed" data-postid="2871482820979272488" data-share-method="host" data-aspect-ratio="1.28351" data-width="100%"><a href="https://tenor.com/view/mochi-pet-mochi-cat-cute-squiddy-gif-2871482820979272488">Mochi Pet GIF</a>from <a href="https://tenor.com/search/mochi-gifs">Mochi GIFs</a></div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        <h1 class="text-4xl font-bold text-pink-600 mt-6 mb-4 font-cursive">¿Te gustaría salir conmigo? 🥰</h1>
+        <p class="text-lg text-gray-700 mb-6">Eres la persona más especial del mundo</p>
+        <div class="btn flex justify-center space-x-4">
+            <a href="si.html" class="px-6 py-3 bg-pink-500 text-white rounded-full hover:bg-pink-600">SÍ</a>
+            <a href="no1.html" class="px-6 py-3 bg-gray-400 text-white rounded-full hover:bg-gray-500">NO</a>
+        </div>
+    </div>
+
+    <script>
+        // Add more hearts dynamically for a romantic effect
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+        setInterval(createHeart, 1000);
+    </script>
+</body>
+</html>

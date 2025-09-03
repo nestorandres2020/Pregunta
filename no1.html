@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piénsalo...</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ff6b6b;
+            transform: rotate(45deg);
+            animation: float 6s infinite;
+            opacity: 0.5;
+        }
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(45deg);
+                opacity: 0;
+            }
+        }
+        .container {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .btn a {
+            transition: all 0.3s ease;
+        }
+        .btn a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+<body class="relative">
+    <!-- Floating hearts for emotional effect -->
+    <div class="heart" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="heart" style="left: 20%; animation-delay: 1s;"></div>
+    <div class="heart" style="left: 30%; animation-delay: 2s;"></div>
+    <div class="heart" style="left: 70%; animation-delay: 1.5s;"></div>
+    <div class="heart" style="left: 80%; animation-delay: 2.5s;"></div>
+
+    <div class="container text-center p-8 bg-white bg-opacity-80 rounded-2xl shadow-lg max-w-md mx-4">
+        <div class="tenor-gif-embed" data-postid="18148463711766725559" data-share-method="host" data-aspect-ratio="1.0641" data-width="100%"><a href="https://tenor.com/view/peach-cat-crying-peach-goma-peach-and-goma-mochi-mochi-peach-cat-gif-gif-18148463711766725559">Peach Cat Crying Peach Goma Sticker</a>from <a href="https://tenor.com/search/peach+cat+crying-stickers">Peach Cat Crying Stickers</a></div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        <h1 class="text-4xl font-bold text-blue-600 mt-6 mb-4 font-cursive">¿Estás Segura? Piénsalo bien 😥</h1>
+        <div class="btn flex justify-center space-x-4">
+            <a href="si.html" class="px-6 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-600">SÍ</a>
+            <a href="no2.html" class="px-6 py-3 bg-gray-400 text-white rounded-full hover:bg-gray-500">NO</a>
+        </div>
+    </div>
+
+    <script>
+        // Add more hearts dynamically for an emotional effect
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+        setInterval(createHeart, 1000);
+    </script>
+</body>
+</html>

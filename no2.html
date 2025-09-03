@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serás mía...</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff9999, #d81b60);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #b00000;
+            transform: rotate(45deg);
+            animation: float 6s infinite;
+            opacity: 0.6;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: #b00000;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 0.9;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .btn a {
+            transition: all 0.3s ease;
+        }
+
+        .btn a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        #btn-random {
+            position: relative;
+            transition: transform 0.2s ease;
+        }
+    </style>
+</head>
+
+<body class="relative">
+    <!-- Floating hearts for romantic effect -->
+    <div class="heart" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="heart" style="left: 20%; animation-delay: 1s;"></div>
+    <div class="heart" style="left: 30%; animation-delay: 2s;"></div>
+    <div class="heart" style="left: 70%; animation-delay: 1.5s;"></div>
+    <div class="heart" style="left: 80%; animation-delay: 2.5s;"></div>
+
+    <div class="container text-center p-8 bg-white bg-opacity-80 rounded-2xl shadow-lg max-w-md mx-4">
+        <div class="tenor-gif-embed" data-postid="21443416" data-share-method="host" data-aspect-ratio="0.95625"
+            data-width="100%"><a href="https://tenor.com/view/white-cat-cats-hell-yeah-cat-gif-21443416">White Cat Cats
+                GIF</a>from <a href="https://tenor.com/search/white+cat-gifs">White Cat GIFs</a></div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        <h1 class="text-4xl font-bold text-red-600 mt-6 mb-4 font-cursive">Serás mía a las buenas o a las malas 😈</h1>
+        <div class="btn flex justify-center space-x-4">
+            <a href="si.html" class="px-6 py-3 bg-red-500 text-white rounded-full hover:bg-red-600">SÍ</a>
+            <a href="#" id="btn-random" class="px-6 py-3 bg-gray-600 text-white rounded-full hover:bg-gray-700">NO</a>
+        </div>
+    </div>
+
+    <script>
+        // Add more hearts dynamically for a romantic effect
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+        setInterval(createHeart, 1000);
+
+        const btnNo = document.querySelector("#btn-random")
+
+        function moverAleatoriamente(btn) {
+            btn.style.position = "absolute";
+            btn.style.fontWeight = "bolder";
+            btn.style.top = Math.floor(Math.random() * 90 + 5) + "%"
+            btn.style.left = Math.floor(Math.random() * 90 + 5) + "%"
+        }
+
+        btnNo.addEventListener("mouseenter", function (e) {
+            moverAleatoriamente(e.target)
+        })
+
+    </script>
+</body>
+
+</html>
